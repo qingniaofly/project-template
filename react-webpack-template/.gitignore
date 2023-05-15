@@ -8,6 +8,7 @@ build
 # Exclude IDE project folders
 .happypack
 .idea
+.vscode
 
 # webpack stats
 stats.json
