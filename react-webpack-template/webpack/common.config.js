@@ -21,10 +21,6 @@ module.exports = (env) => {
             fallback: {
                 path: require.resolve('path-browserify'),
             },
-            alias: {
-                // sdk: path.resolve(__dirname, './service'),
-                // "path": require.resolve("path-browserify")
-            },
         },
         module: {
             rules: [
@@ -42,26 +38,11 @@ module.exports = (env) => {
                         },
                     ],
                 },
-                // {
-                //     test: /\.(ts|tsx)?$/,
-                //     exclude: /node_modules/,
-                //     use: [
-                //         {
-                //             loader: 'awesome-typescript-loader',
-                //             options: {
-                //                 transpileOnly: true,
-                //             },
-                //         }
-                //     ]
-                // },
                 {
                     test: /\.css$/,
                     use: [
                         {
                             loader: MiniCssExtractPlugin.loader,
-                            // options: {
-                            //     publicPath: '../',
-                            // }
                         },
                         'css-loader',
                     ],
@@ -71,9 +52,6 @@ module.exports = (env) => {
                     use: [
                         {
                             loader: MiniCssExtractPlugin.loader,
-                            // options: {
-                            //     publicPath: '../',
-                            // },
                         },
                         {
                             loader: 'css-loader',
@@ -91,9 +69,6 @@ module.exports = (env) => {
                     use: [
                         {
                             loader: MiniCssExtractPlugin.loader,
-                            // options: {
-                            //     publicPath: '../',
-                            // }
                         },
                         {
                             loader: 'css-loader',
@@ -114,9 +89,6 @@ module.exports = (env) => {
             ],
         },
         plugins: [
-            // new webpack.ProvidePlugin({
-            //     path: 'path'
-            // }),
             // // new CleanWebpackPlugin([BUILD_PATH]),
             // new webpack.DefinePlugin({
             //     'process.env': {
@@ -147,8 +119,8 @@ module.exports = (env) => {
         optimization: {
             minimize: false,
             splitChunks: {
-                // chunks: 'all',
-                // minChunks: 2,
+                chunks: 'all',
+                minChunks: 2,
                 // name: 'vendor',
                 cacheGroups: {
                     antd: {

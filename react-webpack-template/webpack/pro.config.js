@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 const { merge } = require('webpack-merge')
 const commonConfig = require('./common.config')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 
 const env = {
     PUBLIC_PATH: '',
@@ -21,12 +21,12 @@ module.exports = merge(commonConfig(env), {
         ),
     ],
     optimization: {
+        minimize: true,
         minimizer: [
-            new UglifyJsPlugin({
+            new TerserPlugin({
                 parallel: 4,
                 exclude: /node_modules/,
-                cache: false,
-                uglifyOptions: {
+                terserOptions: {
                     output: {
                         comments: false,
                         beautify: false,
